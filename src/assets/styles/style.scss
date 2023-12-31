@@ -287,4 +287,45 @@
     }
 }
 
+.offcanvas.offcanvas-bottom {
+    height: 100vh !important;
+    input{
+        height: 50px;
+        font-weight: 700;
+        font-size: 20px;
+         text-align: center;
+         &:focus{
+            box-shadow: none;
+         }
+    }
+}
 
+.search-wrapper{
+    width: 60%;
+    .search-item{
+     display: flex;
+     align-items: center;
+     .s-left{
+       margin-right: 10px;
+       background-color: bisque;
+       img{
+        height: 60px;
+        width: 60px;
+       }
+     }
+     .s-right{
+       h6{
+          font-weight: 600;
+       }
+       p{
+        width: 70vw;
+      margin-bottom: 0;
+        color: gray;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+       }
+     }
+    }
+
+}
