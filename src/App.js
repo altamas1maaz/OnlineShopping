@@ -1,32 +1,36 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Banner from "./components/Banner";
-import Categories from "./components/Categories";
 import SingleProduct from "./pages/SingleProduct";
-
-import Products from "./components/Products";
 import Category from "./pages/Category";
+import Cart from "./pages/Cart";
 
 function App() {
+  const location = useLocation();
+  const cuurRoute = location.pathname;
   return (
     <div className="App">
-       <Header/>
-       <Banner/>
-       <Categories/>
-       <Products/>
+      {
+        cuurRoute === "/" || cuurRoute === "/signup" ? <></> : <Header/> 
+      }
+        
+       
      <Routes>
-      <Route path="/" element={<Home/>}  />
-      <Route  path="login" element={<Login/>} />
+     <Route  path="/" element={<Login/>} />
+      <Route path="home" element={<Home/>}  />
       <Route  path="signup" element={<SignUp/>} />
       <Route path="singleproduct/:id" element={<SingleProduct/>} />
        <Route path="category/:id" element={<Category/>}/>
+       <Route path="cart" element={<Cart/>}></Route>
      </Routes>
-     <Footer/>
+     {
+        cuurRoute === "/" || cuurRoute === "/signup" ? <></> : <Footer/>
+      }
+     
     </div>
   );
 }
